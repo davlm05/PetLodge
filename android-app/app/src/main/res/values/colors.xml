@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary">#4A90E2</color>
+    <color name="primary_dark">#3A78C4</color>
+    <color name="accent">#FF8C42</color>
+    <color name="accent_dark">#E67A35</color>
+
+    <!-- Text Colors -->
+    <color name="text_dark">#1E2939</color>
+    <color name="text_gray">#364153</color>
+    <color name="text_light">#6B7280</color>
+
+    <!-- Background & Borders -->
+    <color name="border_color">#D1D5DC</color>
+    <color name="bg_color">#F4F7F6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Status Colors -->
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="danger">#EF4444</color>
+</resources>

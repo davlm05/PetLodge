@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: petlodge
+      POSTGRES_PASSWORD: petlodge
+      POSTGRES_DB: petlodge
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      DATABASE_URL: postgresql://petlodge:petlodge@db:5432/petlodge
+      SECRET_KEY: dev-secret-key-change-in-prod
+      JWT_SECRET_KEY: dev-jwt-secret-change-in-prod
+      MAIL_SERVER: smtp.gmail.com
+      MAIL_PORT: 587
+      MAIL_USE_TLS: "true"
+      MAIL_USERNAME: "petlodge91@gmail.com"
+      MAIL_PASSWORD: "gxyj oinw lpub xzdr"
+      MAIL_DEFAULT_SENDER: noreply@petlodge.com
+      ADMIN_EMAIL: admin@petlodge.com
+      ADMIN_PASSWORD: Admin123!
+      ADMIN_FULL_NAME: Administrador PetLodge
+      ADMIN_ID_NUMBER: "0000000000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    command: >
+      sh -c "flask db upgrade && flask seed && python run.py"
+
+volumes:
+  pgdata:
